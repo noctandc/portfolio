@@ -108,4 +108,23 @@ Vérification que l’onglet "ACF" apparaissait au lieu de "Champs personnalisé
 
 ## Difficultés rencontrées :
 
-Lors de l'installation et configuration, à l'origine avec XAMPP et PhpStorm, une multitude d'erreurs ont surgit. M'obligeant à désinstaller xampp et partir sur MySQL Shell et VSCode.
+Lors de l'installation et configuration, à l'origine avec XAMPP et PhpStorm, une multitude d'erreurs ont surgit. M'obligeant à désinstaller xampp et partir sur MySQL Shell et VSCode. J'ai passé plus de temps à tout configurer et installer les dépendances qu'à véritablement faire le portfolio.
+
+## Installer et lancer le projet
+- Prérequis :
+    PHP : version 7.4 ou plus
+    MySQL : version 5.7 ou plus
+    Composer : pour gérer les dépendances
+    Git : pour cloner le répertoire
+    Accès à un terminal.
+
+- Etapes d'installation :
+      Clonez le répertoire :
+      Installez les dépendances :
+      Configurez une base donnée :
+      Configurer le fichier .env :
+      Lancer le site :
+- Accès à l'administration :
+-   Identifiant : root
+-   Mot de passe : root
+    
