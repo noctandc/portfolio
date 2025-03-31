@@ -119,11 +119,39 @@ Lors de l'installation et configuration, à l'origine avec XAMPP et PhpStorm, un
     Accès à un terminal.
 
 - Etapes d'installation :
+  
       Clonez le répertoire :
+
+            https://github.com/noctandc/portfolio.git
+  
+            Naviguez dans le dossier du projet : cd nocta-portfolio
+  
       Installez les dépendances :
-      Configurez une base donnée :
-      Configurer le fichier .env :
-      Lancer le site :
+  
+            composer install
+  
+      Configurez une base donnée : Accédez à phpMyAdmin http://localhost:8008/phpmyadmin
+                                  Ou MySQL Shell et rentrer le script de base de donnée 
+      Configurer le fichier .env : cp .env.example .env
+                                  Ouvrir le .env et remplir les informations suivantes :
+                                  DB_NAME=nocta_portfolio_db           # Nom de la base créée
+                                  DB_USER=root            # Utilisateur MySQL (ex. root)
+                                  DB_PASSWORD=root # Mot de passe MySQL
+                                  DB_HOST='localhost'           # Hôte de la base (souvent localhost)
+                                  DB_PREFIX='wp_'
+                                  WP_ENV='development'          # Environnement (development pour local)
+                                  WP_HOME='http://localhost:8008'  # URL publique de ton site
+                                  WP_SITEURL="${WP_HOME}/wp/"  # URL WordPress (avec /wp pour Bedrock)
+                                  AUTH_KEY='generateme'
+                                  SECURE_AUTH_KEY='generateme'
+                                  LOGGED_IN_KEY='generateme'
+                                  NONCE_KEY='generateme'
+                                  AUTH_SALT='generateme'
+                                  SECURE_AUTH_SALT='generateme'
+                                  LOGGED_IN_SALT='generateme'
+                                  NONCE_SALT='generateme'
+
+- Lancer le site : après avoir activé la base de donnée, lancer dans le terminal : php -S localhost:8008 -t web
 - Accès à l'administration :
 -   Identifiant : root
 -   Mot de passe : root
