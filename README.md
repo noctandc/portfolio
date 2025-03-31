@@ -59,4 +59,3 @@ See the [Bedrock installation documentation](https://roots.io/bedrock/docs/insta
 - Participate on [Roots Discourse](https://discourse.roots.io/)
 - Follow [@rootswp on Twitter](https://twitter.com/rootswp)
 - Read the [Roots Blog](https://roots.io/blog/)
-- Subscribe to the [Roots Newsletter](https://roots.io/newsletter/)
