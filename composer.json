@@ -1,0 +1,35 @@
+{
+  "name": "roots/bedrock",
+  "type": "project",
+  "license": "MIT",
+  "description": "WordPress boilerplate with modern development tools",
+  "require": {
+    "php": ">=7.4",
+    "roots/wordpress": "^6.7",
+    "roots/wp-config": "1.0.0",
+    "roots/wp-password-bcrypt": "1.2.0",
+    "vlucas/phpdotenv": "^5.6",
+    "oscarotero/env": "^2.1",
+    "wpackagist-theme/blocksy": "2.0.93",
+    "wpackagist-plugin/advanced-custom-fields": "^6.3"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
+    }
+  },
+  "extra": {
+    "wordpress-install-dir": "web/wp",
+    "installer-paths": {
+      "web/app/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/app/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  }
+}

@@ -1,0 +1,268 @@
+/*
+ Theme Name: Blocksy Child
+ Description: Thème enfant pour Blocksy
+ Author: Malou
+ Template: blocksy
+ Version: 1.0.0
+*/
+body {
+    background-color:aquamarine !important; /* Ou #00ff00 pour un vert vif */
+}
+
+/* Page individuelle */
+.portfolio-single {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.portfolio-details {
+    margin-top: 20px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Archive (grille) */
+.portfolio-archive {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    text-align: center;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.portfolio-item h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.portfolio-item a {
+    text-decoration: none;
+    color: #333;
+}
+
+.portfolio-item a:hover {
+    color: #0073aa;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.featured-label {
+    color: #0073aa;
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+
+
+.hero {
+    position: relative; /* Permet de positionner les éléments internes en absolu */
+    text-align: center; /* Centre le texte */
+    padding: 4em 2em; /* Ajoute de l'espace autour du texte */
+    color: #fff; /* Texte en blanc */
+    font-family: 'Georgia', serif; /* Police élégante */
+    background: linear-gradient(135deg, #3a2c6e, #1e1e1e); /* Dégradé violet foncé */
+    border-radius: 15px; /* Coins arrondis */
+    overflow: hidden; /* Évite les débordements d'éléments internes */
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.3); /* Effet d'ombre */
+}
+
+
+/* Ajoute des fleurs flottantes en haut du bloc */
+.hero::before {
+    content: "🌸 🌿 ✿ 🌺 🌼"; /* Séquence d'emoji floraux */
+    position: absolute;
+    top: -20px; /* Position au-dessus du texte */
+    left: 0;
+    width: 100%;
+    font-size: 4em; /* Taille des fleurs */
+    opacity: 0.1; /* Transparence pour un effet discret */
+    text-align: center;
+    animation: float 5s infinite alternate ease-in-out; /* Animation douce */
+}
+
+/* Superposition avec un effet de points lumineux */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+    background-size: 50px 50px; /* Espacement du motif */
+    opacity: 0.2; /* Rend le motif subtil */
+    pointer-events: none; /* Empêche d'interagir avec cet élément */
+}
+
+/* Effet de flottement des fleurs */
+@keyframes float {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(10px);
+    }
+}
+
+/* Titre principal */
+.hero h1 {
+    font-size: 2.5em; /* Taille du titre */
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6); /* Effet lumineux */
+    animation: glow 1.5s infinite alternate; /* Effet pulsant */
+}
+
+/* Effet de lumière sur le texte */
+@keyframes glow {
+    0% {
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6);
+    }
+    100% {
+        text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.9);
+    }
+}
+
+/* Texte descriptif */
+.hero p {
+    font-size: 1.2em; /* Taille lisible */
+    max-width: 600px; /* Largeur limitée pour éviter que le texte soit trop étalé */
+    margin: 0 auto; /* Centre le texte horizontalement */
+    line-height: 1.6; /* Espacement entre les lignes */
+    background: rgba(255, 255, 255, 0.1); /* Fond semi-transparent */
+    padding: 10px 15px; /* Ajoute de l'espace intérieur */
+    border-radius: 8px; /* Coins légèrement arrondis */
+}
+
+
+/* Conteneur principal : aligne les deux boîtes côte à côte */
+.container {
+    display: flex;
+    justify-content: space-between; /* Répartit l'espace équitablement */
+    align-items: stretch; /* Assure que les boîtes ont la même hauteur */
+    gap: 2em; /* Espacement entre les blocs */
+    flex-wrap: wrap; /* Permet un retour à la ligne si l'écran est trop petit */
+    margin-top: 1em;
+}
+
+/* Chaque section (compétences et passions) occupe 50% de la largeur */
+.skills, .passions {
+    flex: 1; /* Assure que les deux blocs prennent la même place */
+    min-width: 300px; /* Taille minimale pour éviter que ça devienne trop petit */
+}
+
+/* Style des boîtes */
+.box-container {
+    background: linear-gradient(135deg, #1e1e1e, #3a2c6e); /* Dégradé sombre */
+    padding: 1.5em;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #e0d7ff;
+    font-family: 'Georgia', serif;
+    position: relative;
+    width: 100%; /* Pour s'assurer que la boîte occupe bien toute la largeur de son parent */
+    height: 100%; /* Permet d'aligner la hauteur */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Effet de fond avec motif en pointillé */
+.box-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* Titre principal avec effet scintillant */
+.box-container h2 {
+    margin-bottom: 1em;
+    font-size: 1.8em;
+    color: #fff;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8), 
+                 0px 0px 12px rgba(173, 216, 230, 0.6);
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Animation de scintillement */
+@keyframes glow {
+    0% {
+        text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8), 
+                     0px 0px 12px rgba(173, 216, 230, 0.6);
+    }
+    100% {
+        text-shadow: 0px 0px 12px rgba(255, 255, 255, 1), 
+                     0px 0px 18px rgba(173, 216, 230, 0.8);
+    }
+}
+
+/* Suppression des puces de la liste */
+.box-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Espacement entre les éléments de la liste */
+.box-container li {
+    margin-bottom: 0.5em;
+}
+
+/* Responsive : sur petits écrans, les boîtes passent en colonne */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .skills, .passions {
+        width: 100%; /* Chaque boîte prend toute la largeur */
+    }
+}
+
+/* Style du lien en emoji plume */
+.story-link, .art-link {
+    text-decoration: none; /* Supprime le soulignement */
+    font-size: 1.2em; /* Ajuste la taille de l'emoji */
+    margin-left: 5px; /* Espacement entre le texte et l'emoji */
+    transition: transform 0.2s ease-in-out; /* Effet au survol */
+}
+
+/* Effet au survol : l'emoji grossit légèrement */
+.story-link:hover, .art-link:hover {
+    transform: scale(1.3);
+}
+
