@@ -1,61 +1,111 @@
-<p align="center">
-  <a href="https://roots.io/bedrock/">
-    <img alt="Bedrock" src="https://cdn.roots.io/app/uploads/logo-bedrock.svg" height="100">
-  </a>
-</p>
+# Portfolio
 
-<p align="center">
-  <a href="https://packagist.org/packages/roots/bedrock">
-    <img alt="Packagist Installs" src="https://img.shields.io/packagist/dt/roots/bedrock?label=projects%20created&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
+## Etapes réalisées :
+### Installations et configurations
 
-  <a href="https://packagist.org/packages/roots/wordpress">
-    <img alt="roots/wordpress Packagist Downloads" src="https://img.shields.io/packagist/dt/roots/wordpress?label=roots%2Fwordpress%20downloads&logo=roots&logoColor=white&colorB=2b3072&colorA=525ddc&style=flat-square">
-  </a>
+- <u> Installation Bedrock : </u>
+
+  Mise en place de WordPress avec Bedrock via Composer.
+  Configuration des dépendances dans composer.json.
+
+- <u> Configuration de l'environnement :</u>
+
+  Création et remplissage du fichier .env avec les informations de la base de données (DB_NAME, DB_USER, DB_PASSWORD).
   
-  <img src="https://img.shields.io/badge/dynamic/json.svg?url=https://raw.githubusercontent.com/roots/bedrock/master/composer.json&label=wordpress&logo=roots&logoColor=white&query=$.require[%22roots/wordpress%22]&colorB=2b3072&colorA=525ddc&style=flat-square">
+- <u> Changement des thèmes :</u>
 
-  <a href="https://github.com/roots/bedrock/actions/workflows/ci.yml">
-    <img alt="Build Status" src="https://img.shields.io/github/actions/workflow/status/roots/bedrock/ci.yml?branch=master&logo=github&label=CI&style=flat-square">
-  </a>
+  Ajout d’un thème parent et création d’un thème enfant dans web/app/themes/blocksy-child/.
+  Modification des fichiers via VSCode
 
-  <a href="https://twitter.com/rootswp">
-    <img alt="Follow Roots" src="https://img.shields.io/badge/follow%20@rootswp-1da1f2?logo=twitter&logoColor=ffffff&message=&style=flat-square">
-  </a>
-</p>
+### Création du CPT Portfolio
 
-<p align="center">WordPress boilerplate with Composer, easier configuration, and an improved folder structure</p>
+- Ajout du fichier cpt-portfolio.php :
 
-<p align="center">
-  <a href="https://roots.io/bedrock/">Website</a> &nbsp;&nbsp; <a href="https://roots.io/bedrock/docs/installation/">Documentation</a> &nbsp;&nbsp; <a href="https://github.com/roots/bedrock/releases">Releases</a> &nbsp;&nbsp; <a href="https://discourse.roots.io/">Community</a>
-</p>
+    Création du fichier dans le thème enfant (web/app/themes/blocksy-child/cpt-portfolio.php).
+  
+- Déclaration du CPT :
+  
+    Support du titre, éditeur, et image mise en avant ('supports' => array('title', 'editor', 'thumbnail')).
+    Catégories personnalisées (portfolio_category) via register_taxonomy.
+    Permalien personnalisé (/portfolio/nom-de-la-réalisation/) avec 'rewrite' => array('slug' => 'portfolio').
+  
+- Support des images mises en avant :
 
-## Sponsors
+Ajout de add_theme_support('post-thumbnails') dans functions.php.
 
-Bedrock is an open source project and completely free to use. If you've benefited from our projects and would like to support our future endeavors, please consider [sponsoring Roots](https://github.com/sponsors/roots).
+- Enregistrement du cpt :
 
-<div align="center">
-<a href="https://carrot.com/"><img src="https://cdn.roots.io/app/uploads/carrot.svg" alt="Carrot" width="120" height="90"></a> <a href="https://wordpress.com/"><img src="https://cdn.roots.io/app/uploads/wordpress.svg" alt="WordPress.com" width="120" height="90"></a> <a href="https://worksitesafety.ca/careers/"><img src="https://cdn.roots.io/app/uploads/worksite-safety.svg" alt="Worksite Safety" width="120" height="90"></a> <a href="https://www.itineris.co.uk/"><img src="https://cdn.roots.io/app/uploads/itineris.svg" alt="Itineris" width="120" height="90"></a> <a href="https://bonsai.so/"><img src="https://cdn.roots.io/app/uploads/bonsai.svg" alt="Bonsai" width="120" height="90"></a> <a href="https://fusepress.co/sp/sign-up/"><img src="https://cdn.roots.io/app/uploads/fusepress.svg" alt="FusePress" width="120" height="90"></a>
-</div>
+Inclusion de cpt-portfolio.php dans functions.php avec require_once
 
-## Overview
+### Ajout des Champs Personnalisés avec ACF
 
-Bedrock is a WordPress boilerplate for developers that want to manage their projects with Git and Composer. Much of the philosophy behind Bedrock is inspired by the [Twelve-Factor App](http://12factor.net/) methodology, including the [WordPress specific version](https://roots.io/twelve-factor-wordpress/).
+- Installation d'ACF :
 
-- Better folder structure
-- Dependency management with [Composer](https://getcomposer.org)
-- Easy WordPress configuration with environment specific files
-- Environment variables with [Dotenv](https://github.com/vlucas/phpdotenv)
-- Autoloader for mu-plugins (use regular plugins as mu-plugins)
-- Enhanced security (separated web root and secure passwords with [wp-password-bcrypt](https://github.com/roots/wp-password-bcrypt))
+Ajout via Composer : composer require wpackagist-plugin/advanced-custom-fields.
+Activation manuelle dans l’admin et via config/application.php
 
-## Getting Started
+- Création d'un groupe de champs :
 
-See the [Bedrock installation documentation](https://roots.io/bedrock/docs/installation/).
+  Nouveau groupe "Portfolio - Détails" dans ACF avec :
+    Champ "Client" (Texte, portfolio_client).
+    Champ "Date de réalisation" (Date, portfolio_date).
+    Champ "Lien du projet" (URL, portfolio_link).
+    Champ "Galerie d’images" (Répéteur avec sous-champ Image, portfolio_gallery) — simplifié sans galerie finale (option payante).
+Assignation au CPT "portfolio" via la règle d’emplacement.
 
-## Stay Connected
+- Correction de l'onglet ACF :
 
-- Join us on Discord by [sponsoring us on GitHub](https://github.com/sponsors/roots)
-- Participate on [Roots Discourse](https://discourse.roots.io/)
-- Follow [@rootswp on Twitter](https://twitter.com/rootswp)
-- Read the [Roots Blog](https://roots.io/blog/)
+Vérification que l’onglet "ACF" apparaissait au lieu de "Champs personnalisés".
+
+### Affichage des réalisations 
+
+- Création de single-portfolio.php :
+
+  Fichier créé dans le thème enfant pour afficher une réalisation individuelle.
+  Affichage du titre, contenu, et champs ACF (client, date, lien).
+
+- Création de archive-portfolio.php :
+
+  Utilisation de la boucle WordPress avec image mise en avant, titre, et client.
+  
+- Personnalisation des styles :
+
+  Ajout de CSS dans style.css pour une mise en page responsive :
+  Styles pour single-portfolio.php (détails et contenu).
+  Styles pour archive-portfolio.php.
+
+### Création de la Homepage :
+
+- Création d'une page statique :
+
+  Ajout d’une page "Accueil" dans l’admin et configuration comme page d’accueil dans Réglages > Lecture.
+    
+- Développement de front-page.php :
+
+  Création du fichier dans le thème enfant.
+  Ajout de sections :
+    Présentation de l’étudiant (texte statique).
+    Liste des compétences (liste statique).
+    Section "Mes meilleures réalisations".
+
+- Ajout d’un champ ACF pour les réalisations mises en avant :
+
+  Champ "Mis en avant" (Vrai/Faux, portfolio_realisations) ajouté au groupe "Portfolio - Détails".
+  Assignation au CPT "portfolio".
+  
+- Requête pour les meilleures réalisations :
+
+  Utilisation de WP_Query dans front-page.php pour récupérer 3 projets où portfolio_realisations = 1.
+  Affichage en grille avec image, titre, et client.
+
+- Débogage et correction :
+
+  Résolution du problème d’affichage (nom du champ corrigé de portfolio_featured à portfolio_realisations).
+  
+- Styles responsive :
+
+  Ajout de CSS dans style.css pour la homepage (hero, skills).
+
+## Difficultés rencontrées :
+
+Lors de l'installation et configuration, à l'origine avec XAMPP et PhpStorm, une multitude d'erreurs ont surgit. M'obligeant à désinstaller xampp et partir sur MySQL Shell et VSCode.
